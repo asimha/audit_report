@@ -2,7 +2,6 @@ GEM
   remote: https://rubygems.org/
   specs:
     coderay (1.1.0)
-    curb (0.8.8)
     eat (0.1.8)
       httpclient
     httpclient (2.6.0.1)
@@ -33,7 +32,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  curb
   eat
   json
   pry

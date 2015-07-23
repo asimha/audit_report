@@ -1,0 +1,7 @@
+web:
+  build: .
+  command: bundle exec ruby bbtv_data.rb
+  volumes:
+    - .:/bbtv_data
+  ports:
+    - "80:4567"
