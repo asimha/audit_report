@@ -1,1 +1,0 @@
-web: bundle exec ruby bbtv_data.rb -p $PORT
