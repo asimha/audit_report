@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form action='xlsx' method='post'>
+	<label>Enter the URL</label><br/>
+	<input type="text" name="url"><br/>
+	<label>Upload xlsx file</label><br/>
+	<input type="file" name="audit_requirement" id="fileToUpload"><br/>
+	<input type="submit">
+</form>
+
+<% if @call_signs_a != nil %>
+<div style="width: 50%; float: left">
+	<h2>Call sign pressent in JSON but not in xlsx sheet</h2>
+<ul class='unstyled'>
+  <% @call_signs_a.each do |text| %>
+    <li>
+      <label class='bbtv'>
+        <%= text %>
+      </label>
+    </li>
+  <% end %>
+</ul>
+<% end %>
+</div>
+<% if @call_signs_b != nil %>
+<div style="width: 50%; float: right">
+	<h2>Call sign pressent in xlsx sheet but not in JSON</h2>
+<ul class='unstyled'>
+  <% @call_signs_b.each do |text| %>
+    <li>
+      <label class='bbtv'>
+        <%= text %>
+      </label>
+    </li>
+  <% end %>
+</ul>
+<% end %>
+</div>
+</body>
+</html>
