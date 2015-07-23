@@ -1,1 +1,4 @@
-web: bundle exec ruby bbtv_data.rb -p $PORT
+require 'rubygems'
+require 'sinatra'
+require './bbtv_data'
+run Sinatra::Application
