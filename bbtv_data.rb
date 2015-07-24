@@ -18,8 +18,11 @@ end
 
 
 post '/xlsx' do
-  xlsx = Roo::Spreadsheet.open(params['audit_requirement'])
-  xlsx = Roo::Excelx.new(params['audit_requirement'])
+  tempfile = params[:audit_requirement][:tempfile] 
+  filename = params[:audit_requirement][:filename] 
+  # cp(tempfile.path, "public/uploads/#{filename}")
+  xlsx = Roo::Spreadsheet.open(tempfile)
+  xlsx = Roo::Excelx.new(tempfile)
 
   xlsx.info
 
