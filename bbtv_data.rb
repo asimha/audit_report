@@ -39,10 +39,11 @@ post '/xlsx' do
   p @call_signs_j.size
 
 
-  @call_signs_a = @call_signs_j.compact.uniq - @call_signs_b.compact.uniq
+  call_signs_a = @call_signs_j.compact.uniq - @call_signs_b.compact.uniq
   call_signs_b = @call_signs_b.compact.uniq - @call_signs_j.compact.uniq
   call_signs_b.shift
-  @call_signs_b = call_signs_b
+  @call_signs_a = call_signs_a.sort
+  @call_signs_b = call_signs_b.sort
   p @call_signs_a.compact.uniq.size
   p @call_signs_b.compact.uniq.size
   erb :upload
