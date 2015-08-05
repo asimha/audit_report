@@ -2,6 +2,13 @@
 <html>
 <head>
   <link href="/bootstrap.min.css" rel="stylesheet">
+  <style type="text/css">
+  table, th, td{
+    border: 1px solid black;
+    padding: 4px;
+    text-align: center;
+  }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -20,16 +27,18 @@
     <div class="col-sm-6">
       <% if @call_signs_a != nil %>
       <h3>Call sign pressent in JSON but not in xlsx sheet</h3>
-      <ul class='unstyled'>
+      <table class='unstyled'>
+        <tr>
+          <th>Call sign</th>
+          <th>Channels</th>
+        </tr>
         <% @call_signs_a.each do |text| %>
-        <li>
-          <label class='bbtv'>
-            <%= text %> - 
-            <%= @hash_array[text] %>
-          </label>
-        </li>
+        <tr>
+          <td><%= text %></td>
+          <td><%= @hash_array[text] %></td>
+        </tr>
         <% end %>
-      </ul>
+      </table>
       <% end %>
     </div>
 
@@ -37,16 +46,19 @@
       <% if @call_signs_b != nil %>
 
       <h3>Call sign pressent in xlsx sheet but not in JSON</h3>
-      <ul class='unstyled'>
+
+      <table class='unstyled'>
+        <tr>
+          <th>Call sign</th>
+          <th>Channels</th>
+        </tr>
         <% @call_signs_b.each do |text| %>
-        <li>
-          <label class='bbtv'>
-            <%= text %> - 
-            <%= @xlsx_hash[text] %>
-          </label>
-        </li>
+        <tr>
+          <td><%= text %></td>
+          <td><%= @xlsx_hash[text] %></td>
+        </tr>
         <% end %>
-      </ul>
+      </table>
       <% end %>
 
     </div>
