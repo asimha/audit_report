@@ -4,49 +4,54 @@
   <link href="/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<div class="container">
-  <div>&nbsp;</div>
-<form action='xlsx' enctype="multipart/form-data" method='post'>
-	<label>Enter the URL</label><br/>
-	<input type="text" name="url"><br/>
-	<label>Upload xlsx file</label><br/>
-	<input type="file" name="audit_requirement" id="fileToUpload"><br/>
-	<input type="submit">
-</form>
+  <div class="container">
+    <div>&nbsp;</div>
+    <form action='xlsx' enctype="multipart/form-data" method='post'>
+     <label>Enter the URL</label><br/>
+     <input type="text" name="url"><br/>
+     <label>Upload xlsx file</label><br/>
+     <input type="file" name="audit_requirement" id="fileToUpload"><br/>
+     <input type="submit">
+   </form>
 
 
-<div class="row">
-  <div class="col-sm-6">
-    <% if @call_signs_a != nil %>
-  <h3>Call sign pressent in JSON but not in xlsx sheet</h3>
-<ul class='unstyled'>
-  <% @call_signs_a.each do |text| %>
-    <li>
-      <label class='bbtv'>
-        <%= text %>
-      </label>
-    </li>
-  <% end %>
-</ul>
-<% end %>
+   <div class="row">
+
+    <div class="col-sm-6">
+      <% if @call_signs_a != nil %>
+      <h3>Call sign pressent in JSON but not in xlsx sheet</h3>
+      <ul class='unstyled'>
+        <% @call_signs_a.each do |text| %>
+        <li>
+          <label class='bbtv'>
+            <%= text %> - 
+            <%= @hash_array[text] %>
+          </label>
+        </li>
+        <% end %>
+      </ul>
+      <% end %>
+    </div>
+
+    <div class="col-sm-6">
+      <% if @call_signs_b != nil %>
+
+      <h3>Call sign pressent in xlsx sheet but not in JSON</h3>
+      <ul class='unstyled'>
+        <% @call_signs_b.each do |text| %>
+        <li>
+          <label class='bbtv'>
+            <%= text %> - 
+            <%= @xlsx_hash[text] %>
+          </label>
+        </li>
+        <% end %>
+      </ul>
+      <% end %>
+
+    </div>
+
   </div>
-  <div class="col-sm-6">
-    <% if @call_signs_b != nil %>
-
-  <h3>Call sign pressent in xlsx sheet but not in JSON</h3>
-<ul class='unstyled'>
-  <% @call_signs_b.each do |text| %>
-    <li>
-      <label class='bbtv'>
-        <%= text %>
-      </label>
-    </li>
-  <% end %>
-</ul>
-<% end %>
-
-  </div>
-</div>
 
 
 </div>
