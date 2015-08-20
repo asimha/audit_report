@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'rubygems'
 require 'roo'
+require 'roo-xls'
 require 'pry'
 require 'eat'
 require 'json'
@@ -21,8 +22,13 @@ post '/xlsx' do
   tempfile = params[:audit_requirement][:tempfile] 
   filename = params[:audit_requirement][:filename] 
   # cp(tempfile.path, "public/uploads/#{filename}")
-  xlsx = Roo::Spreadsheet.open(tempfile)
-  xlsx = Roo::Excelx.new(tempfile)
+  if params[:audit_requirement][:type] == "application/vnd.ms-excel"
+    xlsx = Roo::Spreadsheet.open(tempfile)
+    xlsx = Roo::Excel.new(tempfile)
+  else
+    xlsx = Roo::Spreadsheet.open(tempfile)
+    xlsx = Roo::Excelx.new(tempfile)
+  end
 
   xlsx.info
 
