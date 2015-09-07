@@ -13,6 +13,8 @@
 <body>
   <div class="container">
     <div>&nbsp;</div>
+    <a href="/json" class="btn btn-default"> Get json data </a>
+    <div>&nbsp;</div>
     <form action='xlsx' enctype="multipart/form-data" method='post'>
      <label>Enter the URL</label><br/>
      <input type="text" name="url"><br/>
@@ -24,7 +26,7 @@
 
    <div class="row">
 
-    <div class="col-sm-6">
+    <div class="col-sm-3">
       <% if @call_signs_a != nil %>
       <h3>Call sign pressent in JSON but not in xlsx sheet</h3>
       <table class='unstyled'>
@@ -42,7 +44,7 @@
       <% end %>
     </div>
 
-    <div class="col-sm-6">
+    <div class="col-sm-3">
       <% if @call_signs_b != nil %>
 
       <h3>Call sign pressent in xlsx sheet but not in JSON</h3>

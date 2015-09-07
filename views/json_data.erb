@@ -1,0 +1,47 @@
+<html>
+<head>
+  <link href="/bootstrap.min.css" rel="stylesheet">
+  <style type="text/css">
+  table, th, td{
+    border: 1px solid black;
+    padding: 4px;
+    text-align: center;
+  }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div>&nbsp;&nbsp;</div>
+   <a href="/" class="btn btn-default">Home</a>
+  <div>&nbsp;&nbsp;</div>
+<form action='json_data' enctype="multipart/form-data" method='post'>
+  <label>Enter the URL</label><br/>
+  <input type="text" name="url"><br/>
+  <input type="submit">
+</form>
+  <div class="row">
+    <div class="col-sm-6">
+      <% if @call_signs_j != nil %>
+      <h3>Channel list from Json</h3>
+      <table class='unstyled'>
+        <tr>
+          <th>Channels</th>
+          <th>Call sign</th>
+          <th>Guid ID</th>
+        </tr>
+        <% @call_signs_j.each do |text| %>
+        <tr>
+          <td><%= text %></td>
+          <td><%= @hash_channels[text] %></td>
+          <td><%= @hash_guid[text] %></td>
+        </tr>
+        <% end %>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
