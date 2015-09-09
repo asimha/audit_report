@@ -74,8 +74,8 @@ post '/json_data' do
   @hash_guid = {}
   
   @call_signs_j.compact.uniq.each_with_index do |value, index|
-    @hash_channels[value] = @channels_j.compact.uniq[index]  
-    @hash_guid[value] = @guid_j.compact.uniq[index]  
+    @hash_channels[value] = @channels_j.compact[index]  
+    @hash_guid[value] = @guid_j.compact[index]  
   end
 
   erb :json_data
