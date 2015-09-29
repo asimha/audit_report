@@ -56,8 +56,8 @@
         </tr>
         <% @call_signs_b.each do |text| %>
         <tr>
-          <td><%= text %></td>
           <td><%= @xlsx_hash[text] %></td>
+          <td><%= text %></td>
         </tr>
         <% end %>
       </table>
